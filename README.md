@@ -2,22 +2,27 @@
 Highly featured vagrant box with ansible2
 
 ## Features
-
+* Ubuntu 14.04 LTS (Trusty Tahr)
+* nginx (mainline version)
+* php-fpm
+* Composer
+* git
+* dos2unix
+* mongodb
+* mysql
+* PHP v8js extension
+* Mailcatcher
+* ant
+* NodeJs 4
+* bower
+* grunt-cli
+* gulp-cli
 
 ## Planned Features
-* Ubuntu 14.04 LTS (Trusty Tahr)
-* WP-CLI (master branch)
-* nginx (mainline version)
-* mysql
-* mongodb
-* php-fpm
-* memcached
-* PHP memcache extension
+* PHP twig extension
 * PHP xdebug extension
 * PHP imagick extension
 * PHP GDlib extension
-* PHP v8js extension
-* PHP twig extension
 * PHPUnit
 * PHPLOC
 * PHP_DEPEND
@@ -28,20 +33,14 @@ Highly featured vagrant box with ansible2
 * PhpMetrics
 * Behat
 * ack-grep
-* git
 * ngrep
-* dos2unix
-* Composer
 * phpMemcachedAdmin
 * phpMyAdmin (multi-language)
 * Opcache Status
 * Webgrind
-* NodeJs 4
-* grunt-cli
-* gulp-cli
-* Mailcatcher
-* ant
-* bower
+* WP-CLI (master branch)
+* memcached
+* PHP memcache extension
 
 ## Contributors
 [@PhilippSchreiber](https://github.com/PhilippSchreiber), [@shakalandy](https://github.com/shakalandy), [@christoph-hautzinger](https://github.com/christoph-hautzinger)

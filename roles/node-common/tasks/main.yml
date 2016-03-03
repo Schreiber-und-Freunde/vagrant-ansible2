@@ -1,0 +1,5 @@
+---
+- name: Install node modules
+  sudo: yes
+  npm:  name={{ item.name }} global=yes
+  with_items: "{{ node_modules }}"

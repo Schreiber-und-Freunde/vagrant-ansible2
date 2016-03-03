@@ -1,0 +1,26 @@
+---
+# Mailcatcher
+
+- name: MailCatcher | MailUtils
+  apt: pkg=mailutils state=latest
+
+- name: MailCatcher | sqlite3
+  apt: pkg=sqlite3 state=latest
+
+- name: MailCatcher | libsqlite3-dev
+  apt: pkg=libsqlite3-dev state=latest
+
+- name: MailCatcher | Install Ruby 1.9.1
+  apt: pkg=ruby1.9.1-dev state=installed
+
+- name: MailCatcher | Install MailCatcher
+  action: command gem install mailcatcher creates=/usr/local/bin/mailcatcher
+
+- name: MailCatcher | Configure Autostart
+  template: src=../templates/upstart.conf.tpl dest=/etc/init/mailcatcher.conf
+
+- name: MailCatcher | Kill MailCatcher
+  command: killall mailcatcher
+
+- name: MailCatcher | Start MailCatcher
+  command: mailcatcher --ip=0.0.0.0

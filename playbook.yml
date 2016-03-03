@@ -15,8 +15,18 @@
       - { name: xdebug, package: php5-xdebug }
     php_extensions:
       - { name: v8js, package: pecl.php.net/v8js-0.4.1 }
+    node_modules:
+      - { name: bower }
+      - { name: grunt-cli }
+      - { name: gulp }
   roles:
-        - php5-common
+      - php5-common
+      - php5-cli
+      - curl
+      - composer
+      - mailcatcher
+      - nodejs
+      - node-common
   tasks:
     - name: Add mongodb repository key
       apt_key: keyserver=keyserver.ubuntu.com id=EA312927

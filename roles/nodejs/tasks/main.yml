@@ -1,0 +1,15 @@
+---
+- name: NodeJS | install add-apt-repository and https binaries for Ansible to work
+  apt: name={{ item }} state=present update_cache=yes
+  with_items:
+    - python-software-properties
+    - apt-transport-https
+
+- name: NodeJS | add NodeSource repository for Node.js 4.0
+  apt_repository: repo='{{ item }} https://deb.nodesource.com/node_4.x {{ ansible_distribution_release|lower }} main' state=present
+  with_items:
+    - deb
+    - deb-src
+
+- name: NodeJS | install Node.js with specific version
+  apt: name="nodejs=4*"  update_cache=yes  state=present force=yes
