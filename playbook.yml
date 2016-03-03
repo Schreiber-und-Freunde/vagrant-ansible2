@@ -14,7 +14,7 @@
       - { name: mysqlnd, package: php5-mysqlnd }
       - { name: xdebug, package: php5-xdebug }
     php_extensions:
-      - { name: v8js, package: pecl.php.net/v8js-0.4.1 }
+      - { name: v8js-0.4.1, package: pecl.php.net/v8js-0.4.1 }
     node_modules:
       - { name: bower }
       - { name: grunt-cli }
@@ -56,6 +56,7 @@
         - mysql-server
         - mongodb-org
         - php5
+        - re2c
 
     - name: absent packages
       apt: name={{ item }} state=absent
