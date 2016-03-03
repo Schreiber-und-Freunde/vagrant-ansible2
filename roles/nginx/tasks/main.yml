@@ -1,0 +1,12 @@
+---
+  - name: Install nginx
+    sudo: yes
+    apt:  pkg=nginx state=latest
+
+  - name: Ensure nginx log directory exists
+    file: dest=/var/log/nginx/{{ project_name }} state=directory
+
+  - name: Change default nginx site
+    sudo: yes
+    template: src={{ project_type }}.tpl dest=/etc/nginx/sites-available/default
+    notify: restart nginx

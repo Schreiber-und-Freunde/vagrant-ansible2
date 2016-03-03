@@ -19,6 +19,10 @@
       - { name: bower }
       - { name: grunt-cli }
       - { name: gulp }
+    project_name: symfony
+    project_type: symfony # symfony|wordpress
+    project_hostnames: symfony.dev
+    doc_root: /var/www
   roles:
       - php5-common
       - php5-cli
@@ -27,6 +31,7 @@
       - mailcatcher
       - nodejs
       - node-common
+      - nginx
   tasks:
     - name: Add mongodb repository key
       apt_key: keyserver=keyserver.ubuntu.com id=EA312927
@@ -50,7 +55,6 @@
         - mysql-client
         - mysql-server
         - mongodb-org
-        - nginx
         - php5
 
     - name: absent packages
