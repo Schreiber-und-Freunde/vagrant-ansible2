@@ -21,6 +21,7 @@
 
 - name: MailCatcher | Kill MailCatcher
   command: killall mailcatcher
+  ignore_errors: yes
 
 - name: MailCatcher | Start MailCatcher
   command: mailcatcher --ip=0.0.0.0

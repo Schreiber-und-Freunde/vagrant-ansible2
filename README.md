@@ -17,12 +17,12 @@ Highly featured vagrant box with ansible2
 * bower
 * grunt-cli
 * gulp-cli
-
-## Planned Features
-* PHP twig extension
 * PHP xdebug extension
 * PHP imagick extension
 * PHP GDlib extension
+
+## Planned Features
+* PHP twig extension
 * PHPUnit
 * PHPLOC
 * PHP_DEPEND
@@ -36,7 +36,6 @@ Highly featured vagrant box with ansible2
 * ngrep
 * phpMemcachedAdmin
 * phpMyAdmin (multi-language)
-* Opcache Status
 * Webgrind
 * WP-CLI (master branch)
 * memcached
