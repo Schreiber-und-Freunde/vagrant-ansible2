@@ -3,18 +3,33 @@
   vars:
     php_ppa: php5
     php_packages:
+      - { name: pear, package: php-pear }
       - { name: dev, package: php5-dev }
+      - { name: fpm, package: php5-fpm }
+      - { name: gd, package: php5-gd }
+      - { name: imagick, package: php5-imagick }
+      - { name: intl, package: php5-intl }
+      - { name: memcached, package: php5-memcached }
+      - { name: mongo, package: php5-mongo }
+      - { name: mysqlnd, package: php5-mysqlnd }
+      - { name: xdebug, package: php5-xdebug }
+    php_extensions:
+      - { name: v8js, package: pecl.php.net/v8js-0.4.1 }
   roles:
-        - php5-common        
+        - php5-common
   tasks:
-    - name: update apt cache
-      apt: update_cache=yes
-    - name: Add PHP 5.6 repository
-      apt_repository: repo='ppa:ondrej/php5-5.6' state=present
-    - name: Add mongodb repository
-      apt_repository: repo='deb http://repo.mongodb.org/apt/ubuntu trusty/mongodb-org/3.2 multiverse' state=present
     - name: Add mongodb repository key
       apt_key: keyserver=keyserver.ubuntu.com id=EA312927
+
+    - name: update apt cache
+      apt: update_cache=yes
+
+    - name: Add PHP 5.6 repository
+      apt_repository: repo='ppa:ondrej/php5-5.6' state=present
+
+    - name: Add mongodb repository
+      apt_repository: repo='deb http://repo.mongodb.org/apt/ubuntu trusty/mongodb-org/3.2 multiverse' state=present
+
     - name: install packages
       apt: name={{ item }} state=present
       with_items:
@@ -27,14 +42,7 @@
         - mongodb-org
         - nginx
         - php5
-        - php5-fpm
-        - php5-gd
-        - php5-imagick
-        - php5-intl
-        - php5-memcached
-        - php5-mongo
-        - php5-mysqlnd
-        - php5-xdebug
+
     - name: absent packages	
       apt: name={{ item }} state=absent
       with_items:
