@@ -1,0 +1,14 @@
+---
+  - name: update apt cache
+    apt: update_cache=yes
+
+  - name: Install ubuntu packages
+    apt: name={{ item }} state=present
+    with_items:
+      - ack-grep
+      - ant
+      - dos2unix
+      - git
+      - ngrep
+      - nscd
+      - re2c

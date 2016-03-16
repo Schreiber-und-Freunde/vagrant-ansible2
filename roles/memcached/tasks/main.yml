@@ -1,0 +1,5 @@
+---
+  - name: Install ubuntu packages
+    apt: name={{ item }} state=latest
+    with_items:
+      - memcached

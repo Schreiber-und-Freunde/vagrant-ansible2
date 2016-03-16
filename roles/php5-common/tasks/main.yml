@@ -1,4 +1,8 @@
 ---
+- name: Add ppa repository
+  sudo: yes
+  apt_repository: repo=ppa:ondrej/php5-{{ php_version }}
+
 - name: Install PHP packages
   sudo: yes
   apt:  package={{ item.package }} state=latest

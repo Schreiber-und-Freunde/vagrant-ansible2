@@ -1,0 +1,9 @@
+---
+  - name: Install ubuntu packages
+    apt: name={{ item }} state=latest
+    with_items:
+      - phpmyadmin
+
+  - name: Create symlink to phpmyadmin
+    file: src=/usr/share/phpmyadmin dest=/usr/share/nginx/html/phpmyadmin state=hard
+    notify: nginx reload

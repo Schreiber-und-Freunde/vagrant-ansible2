@@ -1,0 +1,17 @@
+---
+- name: Add ppa repository
+  sudo: yes
+  apt_repository: repo=ppa:ondrej/mysql-{{ mysql_version }}
+
+- name: Set MySQL root password before installing
+  debconf: name='mysql-server' question='mysql-server/root_password' value='{{mysql_root_pass | quote}}' vtype='password'
+
+- name: Confirm MySQL root password before installing
+  debconf: name='mysql-server' question='mysql-server/root_password_again' value='{{mysql_root_pass | quote}}' vtype='password'
+
+- name: Install MySQL server
+  sudo: yes
+  apt:  pkg=mysql-server state=latest
+
+- name: Create MySQL database symfony
+  command: mysql -u root -p{{ mysql_root_pass }} -e "CREATE DATABASE IF NOT EXISTS symfony;"

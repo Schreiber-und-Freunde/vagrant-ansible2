@@ -1,8 +1,10 @@
 - hosts: all
   sudo: true
   vars:
-    php_ppa: php5
-    php_packages:
+    mysql_version: 5.5 # possible values are 5.6/5.7
+    mysql_root_pass: root
+    php_version: 5.6 # possible values are 5.6/5.7
+    php_packages: # active php packages, just comment per line to deactivate
       - { name: pear, package: php-pear }
       - { name: dev, package: php5-dev }
       - { name: fpm, package: php5-fpm }
@@ -13,8 +15,8 @@
       - { name: mongo, package: php5-mongo }
       - { name: mysqlnd, package: php5-mysqlnd }
       - { name: xdebug, package: php5-xdebug }
-    php_extensions:
-      - { name: v8js-0.4.1, package: pecl.php.net/v8js-0.4.1 }
+    # php_extensions:
+    #  - { name: v8js-0.4.1, package: pecl.php.net/v8js-0.4.1 }
     node_modules:
       - { name: bower }
       - { name: grunt-cli }
@@ -23,42 +25,17 @@
     project_type: symfony # symfony|wordpress
     project_hostnames: symfony.dev
     doc_root: /var/www
-  roles:
+  roles: # active roles, just comment per line to deactivate
       - php5-common
       - php5-cli
-      - curl
       - composer
-      - mailcatcher
+      - curl
+      # - mailcatcher
+      - general
+      - memcached
+      - mysql
       - nodejs
       - node-common
       - nginx
-  tasks:
-    - name: Add mongodb repository key
-      apt_key: keyserver=keyserver.ubuntu.com id=EA312927
-
-    - name: update apt cache
-      apt: update_cache=yes
-
-    - name: Add PHP 5.6 repository
-      apt_repository: repo='ppa:ondrej/php5-5.6' state=present
-
-    - name: Add mongodb repository
-      apt_repository: repo='deb http://repo.mongodb.org/apt/ubuntu trusty/mongodb-org/3.2 multiverse' state=present
-
-    - name: Install ubuntu packages
-      apt: name={{ item }} state=present
-      with_items:
-        - ant
-        - dos2unix
-        - git
-        - memcached
-        - mysql-client
-        - mysql-server
-        - mongodb-org
-        - php5
-        - re2c
-
-    - name: absent packages
-      apt: name={{ item }} state=absent
-      with_items:
-        - apache2
+      - mongo
+      # - phpmyadmin not working

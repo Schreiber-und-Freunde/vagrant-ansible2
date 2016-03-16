@@ -10,7 +10,6 @@ Highly featured vagrant box with ansible2
 * dos2unix
 * mongodb
 * mysql
-* PHP v8js extension
 * Mailcatcher
 * ant
 * NodeJs 4
@@ -20,6 +19,9 @@ Highly featured vagrant box with ansible2
 * PHP xdebug extension
 * PHP imagick extension
 * PHP GDlib extension
+* phpMyAdmin (multi-language)
+* ack-grep
+* ngrep
 
 ## Planned Features
 * PHP twig extension
@@ -32,10 +34,7 @@ Highly featured vagrant box with ansible2
 * phpDox
 * PhpMetrics
 * Behat
-* ack-grep
-* ngrep
 * phpMemcachedAdmin
-* phpMyAdmin (multi-language)
 * Webgrind
 * WP-CLI (master branch)
 * memcached
