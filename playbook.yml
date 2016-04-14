@@ -24,7 +24,7 @@
     project_name: symfony
     project_type: symfony # symfony|wordpress
     project_hostnames: symfony.dev
-    doc_root: /var/www
+    doc_root: /var/www/web
   roles: # active roles, just comment per line to deactivate
       - php5-common
       - php5-cli
