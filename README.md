@@ -22,6 +22,7 @@ Highly featured vagrant box with ansible2
 * phpMyAdmin (multi-language)
 * ack-grep
 * ngrep
+* wkhtmltopdf
 
 ## Planned Features
 * PHP twig extension

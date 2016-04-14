@@ -38,4 +38,5 @@
       - node-common
       - nginx
       - mongo
+      - wkhtmltopdf
       # - phpmyadmin not working
